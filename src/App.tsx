@@ -4,6 +4,7 @@ import { Footer, Header } from './components/common';
 import { StudentCard } from './features/labs/StudentCard';
 import type { Student } from './models/student';
 import { MyText } from './features/labs/MyText';
+import { MainLayout } from './components/Layout';
 // import Header from './components/common/Header';
 // import Footer from './components/common/Footer';
 
@@ -22,9 +23,10 @@ function App() {
 
   return (
     <>
-      <Header />
-      <StudentCard student={john} onClick={handleStudentClick} />
-      <Footer />
+      <MainLayout>
+        <StudentCard student={john} onClick={handleStudentClick} />
+      </MainLayout>
+
       <MyText></MyText>
       <MyText>Easy Frontend</MyText>
       <MyText>{123}</MyText>
