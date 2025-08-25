@@ -15,10 +15,14 @@ function App() {
     hobbyList: ['eat', 'code', 'sleep'],
   };
 
+  function handleStudentClick(student: Student) {
+    console.log('student click');
+  }
+
   return (
     <>
       <Header />
-      <StudentCard student={john} />
+      <StudentCard student={john} onClick={handleStudentClick} />
       <Footer />
     </>
   );

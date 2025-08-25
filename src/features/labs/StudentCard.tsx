@@ -3,12 +3,13 @@ import * as React from 'react';
 
 export interface StudentCardProps {
   student: Student;
+  onClick?: (student: Student) => void;
 }
 
-export function StudentCard({ student }: StudentCardProps) {
+export function StudentCard({ student, onClick }: StudentCardProps) {
   const { name, isHero, age } = student;
   return (
-    <div>
+    <div onClick={(e) => onClick?.(student)}>
       Hello {name} {isHero ? 'hero' : 'nohero'} {age > 18 ? 'adult' : 'baby'}
     </div>
   );
