@@ -1,6 +1,7 @@
 #yarn create vite learn-easy-react --template react-ts
 #yarn
 #yarn dev
+#yarn add --dev vite-tsconfig-paths
 
 # React + TypeScript + Vite
 

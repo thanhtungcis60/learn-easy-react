@@ -1,5 +1,5 @@
+import type { Student } from '@/models';
 import * as React from 'react';
-import type { Student } from '../../models';
 
 export interface StudentCardProps {
   student: Student;

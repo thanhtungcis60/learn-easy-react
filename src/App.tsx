@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import { Footer, Header } from './components/common';
-import { StudentCard } from './features/labs/Student';
+import { StudentCard } from './features/labs/StudentCard';
 import type { Student } from './models/student';
 // import Header from './components/common/Header';
 // import Footer from './components/common/Footer';
