@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { Footer, Header } from './components/common';
+import { Footer, Header, Widget } from './components/common';
 import { StudentCard } from './features/labs/StudentCard';
 import type { Student } from './models/student';
 import { MyText } from './features/labs/MyText';
@@ -42,6 +42,22 @@ function App() {
       <MyText>
         <span>easy</span> <span>fontend</span>
       </MyText>
+
+      <div>
+        <div>
+          <Widget title='Earning Overview'>Chart 1</Widget>
+        </div>
+        <div>
+          <Widget title='Revenue Sources'>Chart 2</Widget>
+        </div>
+        
+        <div>
+          <Widget title='Earning Overview'>Chart 3</Widget>
+        </div>
+        <div>
+          <Widget title='Earning Overview'>Chart 4</Widget>
+        </div>
+      </div>
     </>
   );
 }
