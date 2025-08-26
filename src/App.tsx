@@ -1,78 +1,25 @@
-import { useEffect, useState } from 'react';
 import './App.css';
-import { Footer, Header, Widget } from './components/common';
-import { StudentCard } from './features/labs/StudentCard';
-import type { Student } from './models/student';
-import { MyText } from './features/labs/MyText';
-import { MainLayout } from './components/Layout';
-// import Header from './components/common/Header';
-// import Footer from './components/common/Footer';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [loading,setLoading] = useState(true);
-  const john: Student = {
-    name: '3T',
-    age: 16,
-    isHero: false,
-    hobbyList: ['eat', 'code', 'sleep'],
-  };
+  const studentList = [
+    {id:1,name:'easy'},
+    {id:5,name:'fontend'}
+  ];
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setLoading(false);
-    },3000);
-  },[])
+  const statusList = ['pending','active']
 
-  function handleStudentClick(student: Student) {
-    console.log('student click');
-  }
-
-  // if(loading) return <p>Loading ...</p>
   return (
     <>
-      {/* {loading && <p>Loading...</p>} */}
-      {/* {loading ? <p>Loading...</p> : <p>Data ready</p>} */}
-      {/* <p>
-        {loading ? "Loading..." : "Data ready"}
-      </p> */}
-      
-      
-      <MainLayout>
-        <StudentCard student={john} onClick={handleStudentClick} />
-      </MainLayout>
-
-      <MyText></MyText>
-      <MyText>Easy Frontend</MyText>
-      <MyText>{123}</MyText>
-      <MyText>{false}</MyText>
-      <MyText>{null}</MyText>
-      <MyText>{undefined}</MyText>
-      <MyText>
-        <span>easy</span>
-      </MyText>
-      <MyText>
-        <span>easy</span> fontend
-      </MyText>
-      <MyText>
-        <span>easy</span> <span>fontend</span>
-      </MyText>
-
-      <div>
-        <div>
-          <Widget title='Earning Overview'>Chart 1</Widget>
-        </div>
-        <div>
-          <Widget title='Revenue Sources'>Chart 2</Widget>
-        </div>
-        
-        <div>
-          <Widget title='Earning Overview'>Chart 3</Widget>
-        </div>
-        <div>
-          <Widget title='Earning Overview'>Chart 4</Widget>
-        </div>
-      </div>
+      <ul>
+        {studentList.map((student)=>(
+          <li key={student.id}>{student.name}</li>
+        ))}
+      </ul>
+      <ul>
+        {statusList.map((status,idx)=>(
+          <li key={idx}>{status}</li>
+        ))}
+      </ul>
     </>
   );
 }
