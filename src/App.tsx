@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { Footer, Header, Widget } from './components/common';
 import { StudentCard } from './features/labs/StudentCard';
@@ -10,6 +10,7 @@ import { MainLayout } from './components/Layout';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [loading,setLoading] = useState(true);
   const john: Student = {
     name: '3T',
     age: 16,
@@ -17,12 +18,26 @@ function App() {
     hobbyList: ['eat', 'code', 'sleep'],
   };
 
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoading(false);
+    },3000);
+  },[])
+
   function handleStudentClick(student: Student) {
     console.log('student click');
   }
 
+  // if(loading) return <p>Loading ...</p>
   return (
     <>
+      {/* {loading && <p>Loading...</p>} */}
+      {/* {loading ? <p>Loading...</p> : <p>Data ready</p>} */}
+      {/* <p>
+        {loading ? "Loading..." : "Data ready"}
+      </p> */}
+      
+      
       <MainLayout>
         <StudentCard student={john} onClick={handleStudentClick} />
       </MainLayout>
