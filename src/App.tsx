@@ -1,25 +1,25 @@
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const studentList = [
-    {id:1,name:'easy'},
-    {id:5,name:'fontend'}
-  ];
+  let i = 0;
+  const [showMore,setShowMore]=useState(false);
+  const [count,setCount]=useState(0);
+  const [name,setName]=useState('3T');
 
-  const statusList = ['pending','active']
-
+  function handleIncreaseClick(){
+    const newCount = count+1;
+    setCount(newCount);
+    console.log('after setting count',newCount);
+    setShowMore((prev)=>!prev);
+    i+=5;
+  }
+  console.log("count:"+count," i:"+i);
   return (
     <>
-      <ul>
-        {studentList.map((student)=>(
-          <li key={student.id}>{student.name}</li>
-        ))}
-      </ul>
-      <ul>
-        {statusList.map((status,idx)=>(
-          <li key={idx}>{status}</li>
-        ))}
-      </ul>
+    <p>Count : {count}</p>
+    <button onClick={handleIncreaseClick}>Increase Count</button>
+      {showMore && <p>{name}</p>}
     </>
   );
 }
